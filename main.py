@@ -52,7 +52,6 @@ if not result == 0:
     now_page = int(result) - 1
 else:
     now_page = int(0)
-print(now_page)
 async def run_download(dl_dir: str, verify: bool, **kwargs):
     cai = CivitAI(dl_dir=dl_dir)
     params = kwargs["param"]
