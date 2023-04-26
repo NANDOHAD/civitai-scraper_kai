@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 
 import json
 import random
-
+import time
 import click
 import re
 import os
@@ -52,6 +52,7 @@ if not result == 0:
     now_page = int(result) - 1
 else:
     now_page = int(0)
+print(now_page)
 async def run_download(dl_dir: str, verify: bool, **kwargs):
     cai = CivitAI(dl_dir=dl_dir)
     params = kwargs["param"]
@@ -164,4 +165,6 @@ def main(dir: str, download: bool, verify: bool, **kwargs):
 
 
 if __name__ == "__main__":
-    main()
+    while True:
+        main()
+        time.sleep(1800)
