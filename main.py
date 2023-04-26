@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import json
 import random
@@ -36,7 +36,6 @@ with open(log_file_path, 'r') as f:
         if next_char == '\n':
             if target_word in line:
                 result = re.search(r'\[(\d+)/', line.strip()).group(1)
-                print("Log hakken" + result)
                 break
             else:
                 line = ''
@@ -46,14 +45,14 @@ with open(log_file_path, 'r') as f:
             f.seek(position, os.SEEK_SET)
             if target_word in line:
                 result = re.search(r'\[(\d+)/', line.strip()).group(1)
-                print("Log hakken" + result)
                 break
             else:
                 print('No LOG')
 if not result == 0:
     now_page = int(result) - 1
 else:
-    now_page = 0
+    now_page = int(0)
+print(now_page)
 async def run_download(dl_dir: str, verify: bool, **kwargs):
     cai = CivitAI(dl_dir=dl_dir)
     params = kwargs["param"]
@@ -65,9 +64,12 @@ async def run_download(dl_dir: str, verify: bool, **kwargs):
         next_page += "?"
         for param in params:
             next_page += "&{}".format(param)
+    else:
+        next_page += "?page="
+        next_page += str(now_page)
 
-    while len(next_page) > now_page:
-
+    while len(next_page) > 0:
+        
         model_list = {}
         if from_metadata:
             model_list = await cai.get_models_from_metadata()
@@ -77,7 +79,7 @@ async def run_download(dl_dir: str, verify: bool, **kwargs):
             next_page = ""
         else:
             model_list = await cai.civitai_get(next_page)
-
+       
         total_items = model_list["metadata"]["totalItems"]
         total_pages = model_list["metadata"]["totalPages"]
         current_page = model_list["metadata"]["currentPage"]
