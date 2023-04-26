@@ -1,4 +1,5 @@
 # civitai-scraper_kai
-これはhttps://github.com/KuoriaNeko/civitai-scraper　を改変したものです。
+Original:https://github.com/KuoriaNeko/civitai-scraper
+スクレーパーを改変したものです。
 レジュームっぽい機能があります。
 あくまでぽいだけです。
