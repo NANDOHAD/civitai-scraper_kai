@@ -23,6 +23,7 @@ pip install -r requirements.txt
 なんか間違ってても堪忍してや。
 
 ## 履歴
+2023/06/08 Ver.0.2
 2023/04/27 Ver.0.1
 \
 Original:https://github.com/KuoriaNeko/civitai-scraper
