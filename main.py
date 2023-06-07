@@ -104,7 +104,7 @@ async def run_download(dl_dir: str, verify: bool, **kwargs):
             if nsfw_only and not item["NSFW"]:
                 continue
 
-            if item["type"] == "Checkpoint" or item["type"] == "AestheticGradient" or item["type"] == "Controlnet" or item["type"] == "Controlnet":
+            if  item["type"] == "TextualInversion" or item["type"] == "Poses" or item["type"] == "Checkpoint" or item["type"] == "AestheticGradient" or item["type"] == "Hypernetwork" or item["type"] == "Controlnet":
                 continue
 
             cai_model = CivitAIModel(
