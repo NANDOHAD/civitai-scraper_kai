@@ -28,4 +28,3 @@ pip install -r requirements.txt
 
 ## Credits
 Original:https://github.com/KuoriaNeko/civitai-scraper
-\
